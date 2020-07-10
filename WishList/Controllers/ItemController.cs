@@ -34,13 +34,13 @@ namespace WishList.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpDelete]
-        public IActionResult Delete(int Id)
+       
+        public IActionResult Delete(int id)
         {
-            var itemTobedeleted = _context.Items.FirstOrDefault(item => item.Id == Id);
+            var itemTobedeleted = _context.Items.FirstOrDefault(item => item.Id == id);
             _context.Items.Remove(itemTobedeleted);
             _context.SaveChanges();
-            return RedirectToAction("Index", "Item");
+            return RedirectToAction("Index");
         }
     }
 }
